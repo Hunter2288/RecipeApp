@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Savor</string>
+    <string name="skip">Пропустити</string>
+    <string name="next">Далі</string>
+    <string name="start">Почати</string>
+
+    <string name="ob_title_1">Рецепти за вашим смаком</string>
+    <string name="ob_text_1">Тисячі простих рецептів на будь-яке бажання.</string>
+    <string name="ob_title_2">Готуйте з того, що є вдома</string>
+    <string name="ob_text_2">Вкажіть наявні продукти, і ми підберемо рецепти, які можна приготувати просто зараз.</string>
+    <string name="ob_title_3">Зберігайте улюблене</string>
+    <string name="ob_text_3">Додавайте рецепти в закладки та групуйте їх у власні добірки.</string>
+    <string name="ob_title_4">Готуйте крок за кроком</string>
+    <string name="ob_text_4">Покрокові інструкції з таймерами допоможуть приготувати страву без помилок.</string>
+
+    <string name="home_placeholder">Тут будуть рецепти</string>
+</resources>

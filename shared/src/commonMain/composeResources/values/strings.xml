@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Savor</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="start">Get started</string>
+
+    <string name="ob_title_1">Discover Recipes Tailored to Your Taste</string>
+    <string name="ob_text_1">Explore thousands of easy-to-cook recipes for every craving.</string>
+    <string name="ob_title_2">Cook with What You Already Have</string>
+    <string name="ob_text_2">Enter your ingredients and we will match recipes you can make right now.</string>
+    <string name="ob_title_3">Save &amp; Organize Your Favorites</string>
+    <string name="ob_text_3">Bookmark recipes you love and group them into your own collections.</string>
+    <string name="ob_title_4">Cook Step-by-Step with Ease</string>
+    <string name="ob_text_4">Follow guided instructions with timers so every dish turns out right.</string>
+
+    <string name="home_placeholder">Recipes will appear here</string>
+</resources>
