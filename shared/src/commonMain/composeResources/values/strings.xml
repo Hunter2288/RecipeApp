@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Savor</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="start">Get started</string>
+
+    <string name="ob_title_1">Discover Recipes Tailored to Your Taste</string>
+    <string name="ob_text_1">Explore thousands of easy-to-cook recipes for every craving.</string>
+    <string name="ob_title_2">Cook with What You Already Have</string>
+    <string name="ob_text_2">Enter your ingredients and we will match recipes you can make right now.</string>
+    <string name="ob_title_3">Save &amp; Organize Your Favorites</string>
+    <string name="ob_text_3">Bookmark recipes you love and group them into your own collections.</string>
+    <string name="ob_title_4">Cook Step-by-Step with Ease</string>
+    <string name="ob_text_4">Follow guided instructions with timers so every dish turns out right.</string>
+    <string name="auth_title">Welcome back</string>
+    <string name="auth_subtitle">Sign in to continue</string>
+    <string name="auth_username">Username</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_show">Show</string>
+    <string name="auth_hide">Hide</string>
+    <string name="auth_sign_in">Sign in</string>
+    <string name="err_username_empty">Enter your username</string>
+    <string name="err_username_short">At least 3 characters</string>
+    <string name="err_username_chars">Only letters, digits, _ and .</string>
+    <string name="err_password_empty">Enter your password</string>
+    <string name="err_password_short">At least 6 characters</string>
+    <string name="err_password_digit">Add at least one digit</string>
+    <string name="err_password_letter">Add at least one letter</string>
+    <string name="home_placeholder">Recipes will appear here</string>
+    <string name="home_title">Home</string>
+    <string name="home_welcome">Welcome</string>
+    <string name="repeat_onboarding">Repeat onboarding</string>
+    <string name="sign_out">Sign out</string>
+</resources>

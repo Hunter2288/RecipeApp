@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Savor</string>
+    <string name="skip">Пропустити</string>
+    <string name="next">Далі</string>
+    <string name="start">Почати</string>
+
+    <string name="ob_title_1">Рецепти за вашим смаком</string>
+    <string name="ob_text_1">Тисячі простих рецептів на будь-яке бажання.</string>
+    <string name="ob_title_2">Готуйте з того, що є вдома</string>
+    <string name="ob_text_2">Вкажіть наявні продукти, і ми підберемо рецепти, які можна приготувати просто зараз.</string>
+    <string name="ob_title_3">Зберігайте улюблене</string>
+    <string name="ob_text_3">Додавайте рецепти в закладки та групуйте їх у власні добірки.</string>
+    <string name="ob_title_4">Готуйте крок за кроком</string>
+    <string name="ob_text_4">Покрокові інструкції з таймерами допоможуть приготувати страву без помилок.</string>
+    <string name="auth_title">З поверненням</string>
+    <string name="auth_subtitle">Увійдіть, щоб продовжити</string>
+    <string name="auth_username">Ім’я користувача</string>
+    <string name="auth_password">Пароль</string>
+    <string name="auth_show">Показати</string>
+    <string name="auth_hide">Сховати</string>
+    <string name="auth_sign_in">Увійти</string>
+    <string name="err_username_empty">Введіть ім’я користувача</string>
+    <string name="err_username_short">Щонайменше 3 символи</string>
+    <string name="err_username_chars">Лише літери, цифри, _ та .</string>
+    <string name="err_password_empty">Введіть пароль</string>
+    <string name="err_password_short">Щонайменше 6 символів</string>
+    <string name="err_password_digit">Додайте хоча б одну цифру</string>
+    <string name="err_password_letter">Додайте хоча б одну літеру</string>
+    <string name="home_placeholder">Тут будуть рецепти</string>
+    <string name="home_title">Головна</string>
+    <string name="home_welcome">Ласкаво просимо</string>
+    <string name="repeat_onboarding">Пройти онбординг заново</string>
+    <string name="sign_out">Вийти з акаунта</string>
+</resources>
