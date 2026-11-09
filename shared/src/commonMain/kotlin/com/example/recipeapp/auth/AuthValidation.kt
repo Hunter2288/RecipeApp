@@ -1,7 +1,7 @@
 package com.example.recipeapp.auth
 
 enum class UsernameError { Empty, TooShort, InvalidChars }
-enum class PasswordError { Empty, TooShort, NoDigit, NoLetter }
+enum class PasswordError { Empty, TooShort, NoLetter }
 
 class ValidateUsernameUseCase {
     operator fun invoke(value: String): UsernameError? = when {
@@ -17,7 +17,6 @@ class ValidatePasswordUseCase {
         value.isEmpty() -> PasswordError.Empty
         value.length < 6 -> PasswordError.TooShort
         value.none { it.isLetter() } -> PasswordError.NoLetter
-        value.none { it.isDigit() } -> PasswordError.NoDigit
         else -> null
     }
 }

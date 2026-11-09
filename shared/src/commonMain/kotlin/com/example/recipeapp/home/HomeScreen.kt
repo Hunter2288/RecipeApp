@@ -13,6 +13,7 @@ import androidx.lifecycle.viewModelScope
 import co.touchlab.kermit.Logger
 import com.example.recipeapp.auth.GetUsernameUseCase
 import com.example.recipeapp.auth.SetLoggedInUseCase
+import com.example.recipeapp.auth.SecureTokenStore
 import com.example.recipeapp.onboarding.SetOnboardingCompletedUseCase
 import com.yourname.savor.ui.theme.PillShape
 import kotlinx.coroutines.channels.Channel
@@ -42,6 +43,7 @@ sealed interface HomeEffect {
 class HomeViewModel(
     private val setOnboardingCompleted: SetOnboardingCompletedUseCase,
     private val setLoggedIn: SetLoggedInUseCase,
+    private val tokenStore: SecureTokenStore,
     getUsername: GetUsernameUseCase,
 ) : ViewModel() {
 
@@ -70,6 +72,7 @@ class HomeViewModel(
 
     private fun signOut() {
         viewModelScope.launch {
+            tokenStore.clear()
             setLoggedIn(isLoggedIn = false)
             log.i { "User signed out" }
             _effects.send(HomeEffect.NavigateToAuth)

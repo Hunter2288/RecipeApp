@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import co.touchlab.kermit.Logger
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -30,12 +29,14 @@ sealed interface AuthIntent {
 
 sealed interface AuthEffect {
     data object NavigateToHome : AuthEffect
+    data class ShowError(val message: String) : AuthEffect
 }
 
 class AuthViewModel(
     private val validateUsername: ValidateUsernameUseCase,
     private val validatePassword: ValidatePasswordUseCase,
     private val setLoggedIn: SetLoggedInUseCase,
+    private val signIn: SignInUseCase,
 ) : ViewModel() {
 
     private val log = Logger.withTag("Auth")
@@ -75,11 +76,21 @@ class AuthViewModel(
 
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true) }
-            delay(800) // імітація запиту до сервера
-            log.i { "Signed in as ${s.username}" }
-            setLoggedIn(isLoggedIn = true, username = s.username)
-            _state.update { it.copy(isLoading = false) }
-            _effects.send(AuthEffect.NavigateToHome)
+            try {
+                when (val result = signIn(s.username, s.password)) {
+                    is AuthResult.Success -> {
+                        log.i { "Signed in as ${result.tokens.username}" }
+                        setLoggedIn(isLoggedIn = true, username = result.tokens.username)
+                        _effects.send(AuthEffect.NavigateToHome)
+                    }
+                    is AuthResult.Failure -> _effects.send(AuthEffect.ShowError(result.message))
+                }
+            } catch (error: Exception) {
+                log.e(error) { "Sign in failed" }
+                _effects.send(AuthEffect.ShowError("Sign in failed. Please try again."))
+            } finally {
+                _state.update { it.copy(isLoading = false) }
+            }
         }
     }
 }

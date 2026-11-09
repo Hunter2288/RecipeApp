@@ -14,6 +14,7 @@ import com.example.recipeapp.di.appModule
 import com.example.recipeapp.home.HomeContainer
 import com.example.recipeapp.onboarding.OnboardingContainer
 import com.yourname.savor.ui.theme.AppTheme
+import eu.anifantakis.lib.ksafe.KSafe
 import org.koin.compose.KoinApplication
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -23,8 +24,8 @@ data object AuthRoute : Route
 data object HomeRoute : Route
 
 @Composable
-fun App() {
-    KoinApplication(application = { modules(appModule) }) {
+fun App(secureStorage: KSafe) {
+    KoinApplication(application = { modules(appModule(secureStorage)) }) {
         AppTheme {
             Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                 val appViewModel: AppViewModel = koinViewModel()

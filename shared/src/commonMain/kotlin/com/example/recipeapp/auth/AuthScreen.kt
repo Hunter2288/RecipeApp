@@ -29,22 +29,27 @@ fun AuthContainer(
     viewModel: AuthViewModel = koinViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     LaunchedEffect(Unit) {
         viewModel.effects.collect { effect ->
             when (effect) {
                 AuthEffect.NavigateToHome -> onNavigateToHome()
+                is AuthEffect.ShowError -> snackbarHostState.showSnackbar(effect.message)
             }
         }
     }
 
-    AuthScreen(state = state, onIntent = viewModel::onIntent)
+    Scaffold(snackbarHost = { SnackbarHost(snackbarHostState) }) { padding ->
+        AuthScreen(state = state, onIntent = viewModel::onIntent, modifier = Modifier.padding(padding))
+    }
 }
 
 @Composable
 fun AuthScreen(
     state: AuthState,
     onIntent: (AuthIntent) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val focusManager = LocalFocusManager.current
     val passwordFocusRequester = remember { FocusRequester() }
@@ -56,6 +61,7 @@ fun AuthScreen(
 
     Column(
         modifier = Modifier
+            .then(modifier)
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
             .safeDrawingPadding()
@@ -158,6 +164,5 @@ private fun UsernameError.message() = when (this) {
 private fun PasswordError.message() = when (this) {
     PasswordError.Empty -> Res.string.err_password_empty
     PasswordError.TooShort -> Res.string.err_password_short
-    PasswordError.NoDigit -> Res.string.err_password_digit
     PasswordError.NoLetter -> Res.string.err_password_letter
 }
